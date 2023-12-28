@@ -2,6 +2,7 @@ import { mount as mountMarketingApp } from "marketing/MarketingApp";
 import React, { useRef, useEffect } from "react";
 
 export const MarketingAppInstance = () => {
+  console.log("Hello console!")
   const appRef = useRef(null);
 
   useEffect(() => mountMarketingApp(appRef.current), []);
