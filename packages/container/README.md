@@ -1,1 +1,2 @@
-Deploy test file
+Latest changes:
+- Add AWS region
