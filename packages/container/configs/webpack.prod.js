@@ -7,6 +7,9 @@ const productionConfig = {
   mode: "production",
   output: {
     filename: "[name].[contenthash].js",
+
+    // This path is to prepend whatever string before the filename, so the S3 bucket can find and match within its directory
+    publicPath: "/container/latest/"
   },
   plugins: [
     new ModuleFederationPlugin({
