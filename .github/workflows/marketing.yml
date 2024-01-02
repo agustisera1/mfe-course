@@ -2,10 +2,12 @@ name: deploy-marketing
 
 on:
   push:
+    #  Apply to the following list of branches
     branches:
-      - 'main'
+      - "main"
+    # run the jobs whenever something inside of the marketing dir changes
     paths:
-      - 'packages/marketing/**'
+      - "packages/marketing/**"
 
 defaults:
   run:
