@@ -2,6 +2,8 @@ import React from "react";
 import Header from "./Header";
 import { BrowserRouter } from "react-router-dom";
 import { MarketingAppInstance } from "./MarketingAppInstance";
+import { AuthAppInstance } from "./AuthAppInstance";
+
 import {
   StylesProvider,
   createGenerateClassName,
@@ -15,7 +17,8 @@ export default () => {
       <StylesProvider generateClassName={generateClassName}>
         <div>
           <Header />
-          <MarketingAppInstance />;
+          <MarketingAppInstance />
+          <AuthAppInstance />
         </div>
       </StylesProvider>
     </BrowserRouter>
