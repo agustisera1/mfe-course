@@ -1,11 +1,22 @@
 import { mount as mountMarketingApp } from "marketing/MarketingApp";
 import React, { useRef, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 export const MarketingAppInstance = () => {
-  console.log("Hello console!")
   const appRef = useRef(null);
+  const history = useHistory();
 
-  useEffect(() => mountMarketingApp(appRef.current), []);
+  const onNavigate = ({ pathname: nextPathname }) => {
+    if (nextPathname !== history.location.pathname) history.push(nextPathname);
+  };
+
+  useEffect(() => {
+    const { onParentNavigate } = mountMarketingApp(appRef.current, {
+      onNavigate,
+    });
+
+    history.listen(onParentNavigate);
+  }, []);
 
   return <div id="container-marketing-app-wrapper" ref={appRef} />;
 };
