@@ -2,7 +2,7 @@ import { mount as mountMarketingApp } from "marketing/MarketingApp";
 import React, { useRef, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-export const MarketingAppInstance = () => {
+export default () => {
   const appRef = useRef(null);
   const history = useHistory();
 

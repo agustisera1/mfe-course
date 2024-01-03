@@ -2,7 +2,7 @@ import { mount as mountAuthApp } from "auth/AuthApp";
 import React, { useRef, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-export const AuthAppInstance = () => {
+export default () => {
   const appRef = useRef(null);
   const history = useHistory();
   const onNavigate = ({ pathname: nextPathname }) => {
