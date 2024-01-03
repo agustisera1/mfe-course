@@ -7,17 +7,14 @@ const productionConfig = {
   mode: "production",
   output: {
     filename: "[name].[contenthash].js",
-
-    // This path is to prepend whatever string before the filename, so the S3 bucket can find and match within its directory
-    publicPath: "/container/latest/",
+    publicPath: "/dashboard/latest/",
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "container",
-      remotes: {
-        marketing: `marketing@${process.env.PRODUCTION_DOMAIN}/marketing/latest/remoteEntry.js`,
-        auth: `auth@${process.env.PRODUCTION_DOMAIN}/auth/latest/remoteEntry.js`,
-        dashboard: `dashboard@${process.env.PRODUCTION_DOMAIN}/dashboard/latest/remoteEntry.js`,
+      name: "dashboard",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./DashboardApp": "./src/bootstrap",
       },
       shared: dependencies,
     }),
